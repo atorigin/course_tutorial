@@ -1,0 +1,26 @@
+---
+- hosts: ansible-demo
+  become: true
+
+  tasks:
+
+  - name: Run the equivalent of "apt-get update" as a separate step
+    apt:
+      update_cache: yes
+
+  - name: install docker
+    apt:
+      name: docker.io
+      state: present
+
+  - name: Enable service docker
+    ansible.builtin.systemd:
+      name: docker
+      enabled: yes
+
+  - name: set permission for docker
+    ansible.builtin.shell:
+      cmd: usermod -aG docker ubuntu
+
+  - name: reset ssh connection
+    meta: reset_connection

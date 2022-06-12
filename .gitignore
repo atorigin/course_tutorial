@@ -2,3 +2,4 @@ demo_sa_key.json
 terraform.tfstate
 terraform.tfstate.backup
 .terraform*
+course_demo.pem

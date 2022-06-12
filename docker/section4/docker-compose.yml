@@ -1,0 +1,21 @@
+services:
+  web1:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - "./pages/web1.html:/usr/share/nginx/html/index.html:ro"
+
+  web2:
+    image: nginx:alpine
+    ports:
+      - "8081:80"
+    volumes:
+      - "./pages/web2.html:/usr/share/nginx/html/index.html:ro"
+
+  web3:
+    image: nginx:alpine
+    ports:
+      - "8082:80"
+    volumes:
+      - "./pages/web3.html:/usr/share/nginx/html/index.html:ro"
